@@ -1,0 +1,24 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.15",
+    "@ffprobe-installer/ffprobe": "^1.0.9",
+    "aws-sdk": "^2.326.0",
+    "busboy": "^0.2.14",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "ffprobe": "^1.1.0",
+    "ffprobe-static": "^3.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
+  }
+}
