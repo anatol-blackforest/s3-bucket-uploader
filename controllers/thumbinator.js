@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
+const path = require('path');
 
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffprobePath = require('@ffprobe-installer/ffprobe').path;
@@ -10,16 +11,15 @@ const ffprobeStatic = require('ffprobe-static');
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
-const errorHandler = require('../controllers/error');
-
 module.exports = function(data) {
 
-    let {req, res, filename, mimetype, targetFile} = data
-    targetFolder = path.join(__dirname, "/../tmp/thumb/")
-
+    let {filename} = data
+    let targetFolder = path.join(__dirname, "/../tmp/thumb/")
+    let incomingFile = path.join(__dirname, "/../tmp/original/", filename)
+    
     return new Promise(function(resolve, reject) {
 
-        ffmpeg(targetFile)
+        ffmpeg(incomingFile)
             .on('end', function() {
                 console.log('Screenshots taken');
                 let obj = {...data, thumb: filename + ".jpg"}

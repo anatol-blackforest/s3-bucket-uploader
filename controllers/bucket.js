@@ -12,10 +12,12 @@ module.exports = function(req, res) {
         resolve({req, res})
     })
     .then((data) => { 
+        // upload file in temporary directory
         return localUploader(data)
     })
     .then((data) => { 
-        thumbinator(data)
+        // create thumbnail from temp file
+        return thumbinator(data)
     })
     // .then((data) => { 
     //     bucketUploader(data)

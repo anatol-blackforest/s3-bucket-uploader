@@ -22,7 +22,7 @@ module.exports = function(data) {
 
                 filename = Date.now() + "_" + filename
                 targetFile = path.join(__dirname, "/../tmp/original/" + filename)
-                let obj = {req, res, filename, mimetype, targetFile}
+                let obj = {req, res, filename, mimetype}
                 const target = fs.createWriteStream(targetFile)
                 file.pipe(target)
                 target.on("finish", () => resolve(obj))
