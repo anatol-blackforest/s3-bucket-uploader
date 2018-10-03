@@ -32,7 +32,6 @@ module.exports = function(data) {
                 }).send(function (e, data) {
                     stat(incomingFile).then(() => fs.unlink(incomingFile)).then(() => stat(incomingThumb).then(() => fs.unlink(incomingThumb)))
                     console.log(e)
-       
                     console.log('Successfully uploaded data'); 
                     resolve({data, res})
                 });
