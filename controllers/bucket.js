@@ -1,7 +1,7 @@
 const Busboy = require('busboy');
 const localUploader = require('./uploader');
 const thumbinator = require('./thumbinator');
-const bucketUploader = require('./bucket');
+const bucketUploader = require('./s3uploader');
 const renderer = require('./renderer');
 const errorHandler = require('./error');
 
@@ -20,10 +20,8 @@ module.exports = function(req, res) {
         return thumbinator(data)
     })
     // .then((data) => { 
-    //     bucketUploader(data)
-    // })
-    // .then((data) => { 
-    //     bucketUploader(data)
+    //     // upload file and thumbnail to S3
+    //     return bucketUploader(data)
     // })
     .then((data) => { 
         return renderer(data)
