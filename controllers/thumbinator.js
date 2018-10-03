@@ -1,8 +1,7 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
-const {promisify} = require('util');
-const stat = promisify(fs.stat);
+
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffprobePath = require('@ffprobe-installer/ffprobe').path;
 const ffmpeg = require('fluent-ffmpeg');
@@ -28,7 +27,6 @@ module.exports = function(data) {
             })
             .on('error', function(err) {
                 console.log(err);
-                stat(incomingFile).then(() => fs.unlink(incomingFile))
                 reject("Screenshot error");
             })
             .screenshots({

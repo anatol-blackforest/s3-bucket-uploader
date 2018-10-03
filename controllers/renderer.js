@@ -1,7 +1,8 @@
-module.exports = function(data) {
+module.exports = function(result) {
 
     return new Promise(function(resolve, reject) {
-        res.json("OK!")
+        const {res, data} = result
+        res.json(data)
         resolve()
     })
 

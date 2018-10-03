@@ -8,7 +8,7 @@ const {BUCKET_NAME, IAM_USER_KEY, IAM_USER_SECRET} = require('./config');
 
 module.exports = function(data) {
     
-    let {filename, thumb} = data
+    let {res, filename, thumb} = data
 
     return new Promise(function(resolve, reject) {
 
@@ -34,7 +34,7 @@ module.exports = function(data) {
                     console.log(e)
        
                     console.log('Successfully uploaded data'); 
-                    resolve(data)
+                    resolve({data, res})
                 });
                
             }); 

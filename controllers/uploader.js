@@ -20,7 +20,7 @@ module.exports = function(data) {
     
             busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
 
-                filename = Date.now() + "-" + filename
+                filename = Date.now() + "_" + filename
                 targetFile = path.join(__dirname, "/../tmp/original/" + filename)
                 let obj = {req, res, filename, mimetype}
                 const target = fs.createWriteStream(targetFile)
