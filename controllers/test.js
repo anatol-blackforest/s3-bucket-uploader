@@ -1,16 +1,7 @@
 const AWS = require('aws-sdk');
 const Busboy = require('busboy');
 
-const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
-const ffprobePath = require('@ffprobe-installer/ffprobe').path;
-const ffmpeg = require('fluent-ffmpeg');
-const ffprobe = require('ffprobe');
-const ffprobeStatic = require('ffprobe-static');
-
-ffmpeg.setFfmpegPath(ffmpegPath);
-ffmpeg.setFfprobePath(ffprobePath);
-
-const errorHandler = require('../modules/error');
+const errorHandler = require('./error');
 
 const {BUCKET_NAME, IAM_USER_KEY, IAM_USER_SECRET} = require('./config');
 
