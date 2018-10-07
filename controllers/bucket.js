@@ -2,6 +2,7 @@ const Busboy = require('busboy');
 const localUploader = require('./uploader');
 const thumbinator = require('./thumbinator');
 const bucketUploader = require('./s3uploader');
+const geter = require('./geter');
 const renderer = require('./renderer');
 const errorHandler = require('./error');
 
@@ -23,7 +24,10 @@ module.exports = function(req, res) {
         return bucketUploader(data)
     })
     .then((data) => { 
-        return renderer(data)
+        return geter(data)
+    })
+    .then((data) => { 
+        renderer(data)
     })
     .catch((err) => {
         errorHandler(res, err)
